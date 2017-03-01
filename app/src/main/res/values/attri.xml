@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tab按键, 带提示红点 -->
+    <declare-styleable name="TabButton">
+        <attr name="dotSize" format="dimension"/>
+    </declare-styleable>
+
+    <!-- 作用同系统的 fitsSystemWindows -->
+    <attr name="fitsSystemWindows" format="boolean"/>
+
+    <!-- 渐显出来的标题栏高度 -->
+    <attr name="titleLayoutHeight" format="dimension"/>
+
+    <!-- 自定义状态栏的属性 -->
+    <declare-styleable name="CustomStatusBarView">
+        <!-- 总是显示，作用相当于 fitSystemWindows -->
+        <attr name="showAlways" format="boolean"/>
+        <!-- 在指定的安卓系统版本以上显示，仅当 showAlways 为 false 时 -->
+        <attr name="showAfterSdkVersionInt" format="integer"/>
+    </declare-styleable>
+
+</resources>

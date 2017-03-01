@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.wordplat.quickstart"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode APP_VERSION_CODE as int // 这里的值去 gradle.properties 文件中修改，免去每次更新版本都 sync 一遍
+        versionName APP_VERSION_NAME as String
+
+        multiDexEnabled true
+
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+        }
+
+        manifestPlaceholders = [
+                SERVER_HTTP_URL_VERSION : SERVER_HTTP_URL_VERSION as String,
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
+
+    compile 'org.xutils:xutils:3.3.36'
+    // 设置状态栏颜色
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    // multidex
+    compile 'com.android.support:multidex:1.0.1'
+    // 多种风格的Tab
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.8@aar'
+    // 下拉刷新, 支持ScrollView、RecyclerView
+    compile 'com.chanven.lib:cptr:1.1.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okio:okio:1.10.0'
+    compile 'com.wordplat:RecyclerViewEasyDivider:1.0.3'
+    // 一个带 fit 和 fade 实现的 Picasso 版本
+    compile name: 'picasso-release-2.5.2.4b', ext: 'aar'
+}

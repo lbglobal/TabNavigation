@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/Dialog_Cancel_But"
+            android:layout_width="31dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right"
+            android:background="@mipmap/dialog_close"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_dialog_radius7">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp">
+
+                <TextView android:id="@+id/Dialog_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="RecyclerView List"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="#aa0000"/>
+
+                <TextView android:id="@+id/Dialog_Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Dialog_Title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Coupon"
+                    android:textSize="11dp"
+                    android:textColor="#888888"/>
+
+            </RelativeLayout>
+
+            <Button android:id="@+id/Dialog_Action_But"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我知道了"
+                android:textSize="15dp"
+                android:textColor="#282b34"
+                android:visibility="gone"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/Coupon_List"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

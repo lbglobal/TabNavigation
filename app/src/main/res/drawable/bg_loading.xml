@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<animation-list android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="150" android:drawable="@drawable/bg_loading1" />
+    <item android:duration="150" android:drawable="@drawable/bg_loading2" />
+    <item android:duration="150" android:drawable="@drawable/bg_loading3" />
+    <item android:duration="150" android:drawable="@drawable/bg_loading4" />
+</animation-list>

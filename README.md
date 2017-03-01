@@ -1,0 +1,1 @@
+Pull to refresh, CoordinatorLayout & AppBarLayout & CollapsingToolbarLayout & RecyclerView smooth fling example. Quick start with a standard Android APP with four navigation buttons.

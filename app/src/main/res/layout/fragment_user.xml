@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 顶部下拉刷新 -->
+<com.wordplat.quickstart.widget.pulllistview.PullListLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/pullList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            app:layout_behavior="com.wordplat.quickstart.widget.custom.AppBarHeaderBehavior"
+            app:elevation="0dp">
+
+            <com.wordplat.quickstart.widget.custom.CustomCollapsingToolbarLayout
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/titleLayoutHeight"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:statusBarScrim="?attr/colorPrimaryDark">
+
+                <!-- 以下是滑动时会滑出屏幕的内容布局 -->
+
+                <!-- ImageView 必须指定一个高度，不能使用 wrap_content -->
+                <ImageView android:id="@+id/userImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop" />
+
+                <!-- 以下是滑动时会固定在顶部的标题栏布局，根据标题栏布局是否已经固定在顶部，它会被代码设置为显示或隐藏 -->
+
+                <LinearLayout android:id="@+id/titleLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="?attr/colorPrimaryDark"
+                    android:visibility="gone"
+                    app:layout_collapseMode="pin">
+
+                    <!-- 这是个假的状态栏，用于撑出一个状态栏高度，在系统支持透明状态栏时，它会被代码设置为 visible，否则设置为 gone -->
+
+                    <View
+                        android:id="@+id/statusBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/title_height"
+                        android:gravity="center"
+                        android:text="我的"
+                        android:textColor="#ffffff"
+                        android:textSize="17sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+            </com.wordplat.quickstart.widget.custom.CustomCollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/textList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</com.wordplat.quickstart.widget.pulllistview.PullListLayout>
