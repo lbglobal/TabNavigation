@@ -16,11 +16,19 @@
         android:layout_height="match_parent"
         android:background="#eeeeee">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/textList"
+        <com.chanven.lib.cptr.PtrFrameLayout
+            android:id="@+id/ptrFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp" />
+            android:layout_margin="20dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/textList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.chanven.lib.cptr.PtrFrameLayout>
+
 
     </LinearLayout>
 

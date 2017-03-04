@@ -6,6 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.chanven.lib.cptr.PtrFrameLayout;
+import com.chanven.lib.cptr.loadmore.OnLoadMoreListener;
+import com.chanven.lib.cptr.recyclerview.RecyclerAdapterWithHF;
 import com.wordplat.easydivider.RecyclerViewCornerRadius;
 import com.wordplat.easydivider.RecyclerViewLinearDivider;
 import com.wordplat.quickstart.R;
@@ -13,6 +16,7 @@ import com.wordplat.quickstart.fragment.BaseFragment;
 import com.wordplat.quickstart.fragment.HomeTabClickListener;
 import com.wordplat.quickstart.ui.news.adapter.TextAdapter;
 import com.wordplat.quickstart.widget.TabButton;
+import com.wordplat.quickstart.widget.pulllistview.LoadMoreViewFooter;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -26,6 +30,7 @@ import org.xutils.view.annotation.ViewInject;
 @ContentView(R.layout.fragment_news)
 public class NewsFragment extends BaseFragment implements HomeTabClickListener {
 
+    @ViewInject(R.id.ptrFrameLayout) private PtrFrameLayout ptrFrameLayout = null;
     @ViewInject(R.id.textList) private RecyclerView textList = null;
 
     private TextAdapter textAdapter;
@@ -41,7 +46,26 @@ public class NewsFragment extends BaseFragment implements HomeTabClickListener {
         textAdapter = new TextAdapter(mActivity);
 
         textList.setLayoutManager(new LinearLayoutManager(mActivity));
-        textList.setAdapter(textAdapter);
+        textList.setAdapter(new RecyclerAdapterWithHF((RecyclerView.Adapter) textAdapter));
+
+        ptrFrameLayout.setAutoLoadMoreEnable(true);
+        ptrFrameLayout.setLoadMoreEnable(true);
+        LoadMoreViewFooter loadMoreViewFactory = new LoadMoreViewFooter();
+        ptrFrameLayout.setFooterView(loadMoreViewFactory);
+        ptrFrameLayout.setPullToRefresh(false);
+        ptrFrameLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void loadMore() {
+                ptrFrameLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        textAdapter.add(5);
+                        textAdapter.notifyDataSetChanged();
+                        ptrFrameLayout.loadMoreComplete(true);
+                    }
+                }, 2000);
+            }
+        });
 
         RecyclerViewCornerRadius recyclerViewCornerRadius = new RecyclerViewCornerRadius(textList);
         recyclerViewCornerRadius.setCornerRadius(30);

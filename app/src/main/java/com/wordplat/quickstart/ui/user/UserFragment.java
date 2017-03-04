@@ -70,6 +70,7 @@ public class UserFragment extends BaseFragment implements HomeTabClickListener {
 
         textList.setLayoutManager(new LinearLayoutManager(mActivity));
         textList.setAdapter(textAdapter);
+        textList.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
         RecyclerViewLinearDivider recyclerViewLinearDivider = new RecyclerViewLinearDivider(mActivity, LinearLayoutManager.VERTICAL);
         recyclerViewLinearDivider.setDividerSize(1);

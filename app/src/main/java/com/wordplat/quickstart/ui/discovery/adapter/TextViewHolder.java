@@ -1,4 +1,4 @@
-package com.wordplat.quickstart.ui.news.adapter;
+package com.wordplat.quickstart.ui.discovery.adapter;
 
 import android.view.View;
 import android.widget.TextView;

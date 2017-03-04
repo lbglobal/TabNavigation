@@ -16,8 +16,14 @@ public class TextAdapter extends RecyclerView.Adapter<TextViewHolder> {
 
     private Activity mActivity;
 
+    private int count = 50;
+
     public TextAdapter(Activity activity) {
         mActivity = activity;
+    }
+
+    public void add(int count) {
+        this.count += count;
     }
 
     @Override
@@ -34,6 +40,6 @@ public class TextAdapter extends RecyclerView.Adapter<TextViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 50;
+        return count;
     }
 }

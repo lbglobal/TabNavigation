@@ -1,4 +1,4 @@
-package com.wordplat.quickstart.ui.news.adapter;
+package com.wordplat.quickstart.ui.discovery.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
@@ -16,26 +16,24 @@ public class TextAdapter extends RecyclerView.Adapter<TextViewHolder> {
 
     private Activity mActivity;
 
-    private int count = 50;
+    private int count;
 
-    public TextAdapter(Activity activity) {
+    public TextAdapter(Activity activity, int itemCount) {
         mActivity = activity;
-    }
 
-    public void add(int count) {
-        this.count += count;
+        count = itemCount;
     }
 
     @Override
     public TextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(mActivity).inflate(R.layout.item_news_text, parent, false);
+        View itemView = LayoutInflater.from(mActivity).inflate(R.layout.item_discovery_text, parent, false);
 
         return new TextViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(TextViewHolder holder, int position) {
-        holder.text.setText("position " + position);
+        holder.text.setText(String.valueOf(position));
     }
 
     @Override

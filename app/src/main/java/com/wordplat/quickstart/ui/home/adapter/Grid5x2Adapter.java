@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wordplat.quickstart.R;
+import com.wordplat.quickstart.widget.dialog.CouponDialog;
 
 /**
  * Created by afon on 2017/2/5.
@@ -29,7 +30,12 @@ public class Grid5x2Adapter extends RecyclerView.Adapter<Grid5x2ViewHolder> {
 
     @Override
     public void onBindViewHolder(Grid5x2ViewHolder holder, int position) {
-
+        holder.actionBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CouponDialog.from(mActivity).show();
+            }
+        });
     }
 
     @Override

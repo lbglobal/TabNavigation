@@ -136,7 +136,7 @@ public class HomeFragment extends BaseFragment implements HomeTabClickListener {
         RecyclerViewGridDivider recyclerViewGridDivider = new RecyclerViewGridDivider(3, AppUtils.dpTopx(mActivity, 10), AppUtils.dpTopx(mActivity, 10));
         recyclerViewGridDivider.setRowDividerMargin(30, 30);
         recyclerViewGridDivider.setColDividerMargin(30, 30);
-        recyclerViewGridDivider.setDividerColor(0xFFDDDDDD);
+        recyclerViewGridDivider.setDividerColor(0x88000000);
         recyclerViewGridDivider.setDividerSize(2);
         recyclerViewGridDivider.setDividerClipToPadding(false);
         recyclerViewGridDivider.setFillItemDivider(true);
