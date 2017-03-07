@@ -207,7 +207,7 @@ public final class AppBarHeaderBehavior extends AppBarLayout.Behavior {
             scrolledY += dy;
 
             // 当 TabLayout 滚动到顶部时手工触发 fling 操作
-            if (!dragging && scrolledY <= 0) {
+            if (!dragging && scrolledY <= 0 && velocity != 0) {
                 manualFling(recyclerView);
             }
         }
