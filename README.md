@@ -13,7 +13,7 @@ TabLayout 悬停是用 CoordinatorLayout & AppBarLayout & CollapsingToolbarLayou
 
 ## Screenshot
 
-![](screenshot/demo1.gif)    ![](screenshot/demo2.gif)
+![](screenshot/demo.gif)
 
 ![](screenshot/S70303-193132.jpg)    ![](screenshot/S70303-193212.jpg)    ![](screenshot/S70304-13502456.jpg)
 
