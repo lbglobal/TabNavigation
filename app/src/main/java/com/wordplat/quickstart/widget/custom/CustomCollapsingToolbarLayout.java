@@ -103,7 +103,6 @@ public class CustomCollapsingToolbarLayout extends CollapsingToolbarLayout {
                 titleLayout.setVisibility(VISIBLE);
 
                 titleLayout.getBackground().mutate().setAlpha(scrimAlpha);
-                titleLayout.draw(canvas);
             } else {
                 titleLayout.setVisibility(GONE);
             }

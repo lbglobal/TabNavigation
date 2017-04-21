@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="fitsSystemWindows">true</item>
-        <item name="titleLayoutHeight">69.5dp</item>
+        <item name="titleLayoutHeight">67dp</item>
     </style>
 
 </resources>
